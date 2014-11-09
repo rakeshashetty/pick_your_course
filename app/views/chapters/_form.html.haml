@@ -1,0 +1,7 @@
+= simple_form_for @chapter, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name
+  = f.input :description
+  = f.association :syllabus
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), syllabuses_path, :class => 'btn'

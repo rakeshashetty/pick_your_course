@@ -1,0 +1,3 @@
+- model_class = Chapter
+= render 'shared/list', :model_class => Chapter, :courses => @chapters
+= link_to t('.new', :default => t("helpers.links.new")), new_chapter_path, :class => 'btn btn-primary'

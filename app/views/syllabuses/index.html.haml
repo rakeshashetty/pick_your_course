@@ -1,0 +1,3 @@
+- model_class = Syllabus
+= render 'shared/list', :model_class => Syllabus, :courses => @courses
+= link_to t('.new', :default => t("helpers.links.new")), new_syllabus_path, :class => 'btn btn-primary' if can? :manage, Syllabus

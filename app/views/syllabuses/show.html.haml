@@ -1,0 +1,20 @@
+- model_class = Syllabus
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+
+%p
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
+  = @syllabus.name
+%p
+  %strong= model_class.human_attribute_name(:description) + ':'
+  %br
+  = @syllabus.description
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), syllabuses_path, :class => 'btn'
+  - if can? :manage, @syllabus
+    = link_to t('.edit', :default => t("helpers.links.edit")), edit_syllabus_path(@syllabus), :class => 'btn'
+    = link_to t('.destroy', :default => t("helpers.links.destroy")), @syllabus, :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+
+= render 'shared/list', :model_class => Chapter, :courses => @syllabus.chapters
